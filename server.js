@@ -1,10 +1,10 @@
 const express = require ('express');
-const app= express();
-var PORT = 8085;
+const app=  express();
+var PORT = process.env.PORT || 8085;
 
 app.use(express.static('public'));
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.send('index.html');
     res.end();
 });
