@@ -3,19 +3,19 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 
-router.get('/',function(req,res){
+router.get('/',(req,res) =>{
   res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-router.get('/home',function(req,res){
+router.get('/home',(req,res) =>{
     res.sendFile(path.join(__dirname+'/public/index.html'));
   });
 
-router.get('/about',function(req,res){
+router.get('/about',  (req,res)=>{
   res.sendFile(path.join(__dirname+'/public/about.html'));
 });
 
 app.use('/', router);
-app.listen(process.env.port || 3000);
+app.listen(process.env.port || 8085);
 
-console.log('Running at Port 3000');
+console.log('Running at Port 8085');
