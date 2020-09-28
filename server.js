@@ -1,14 +1,21 @@
-const express = require ('express');
-const app=  express();
-var PORT = process.env.PORT || 8085;
+const express = require('express');
+const app = express();
+const path = require('path');
+const router = express.Router();
 
-app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-    res.send('index.html');
-    res.end();
+router.get('/',function(req,res){
+  res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-app.listen(PORT);
+router.get('/home',function(req,res){
+    res.sendFile(path.join(__dirname+'/public/index.html'));
+  });
 
-console.log('James Frih');
+router.get('/about',function(req,res){
+  res.sendFile(path.join(__dirname+'/public/about.html'));
+});
+
+app.use('/', router);
+app.listen(process.env.port || 3000);
+
+console.log('Running at Port 3000');
